@@ -2,13 +2,15 @@
 	export let name;
 	import Quiz from "./Quiz.svelte";
 	import Declarations from "./Declarations.svelte"
+	import Statements from "./Statements.svelte";
 </script>
 
 <main>
 	<h1>Hello {name}!</h1>
 	<Quiz quizName="Another Quiz Name"/>
 	<Declarations />
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+
+	<Statements />
 </main>
 
 <style>
