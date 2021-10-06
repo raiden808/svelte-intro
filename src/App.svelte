@@ -3,14 +3,29 @@
 	import Quiz from "./Quiz.svelte";
 	import Declarations from "./Declarations.svelte"
 	import Statements from "./Statements.svelte";
+	import Each from "./Each.svelte"
+	import Await from "./Await.svelte"
+	import ComponentEvent from "./ComponentEvent/App.svelte"
 </script>
 
 <main>
+	<!--
 	<h1>Hello {name}!</h1>
+
 	<Quiz quizName="Another Quiz Name"/>
 	<Declarations />
 
 	<Statements />
+	
+
+	<Each />
+	
+
+	<Await />
+	-->
+
+	<ComponentEvent />
+
 </main>
 
 <style>
