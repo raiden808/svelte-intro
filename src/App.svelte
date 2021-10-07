@@ -1,11 +1,14 @@
 <script>
 	export let name;
 	import Quiz from "./Quiz.svelte";
-	import Declarations from "./Declarations.svelte"
+	import Declarations from "./Declarations.svelte";
 	import Statements from "./Statements.svelte";
-	import Each from "./Each.svelte"
-	import Await from "./Await.svelte"
-	import ComponentEvent from "./ComponentEvent/App.svelte"
+	import Each from "./Each.svelte";
+	import Await from "./Await.svelte";
+	import ComponentEvent from "./ComponentEvent/App.svelte";
+	import ComponentBindings from "./ComponentBindings/App.svelte";
+	import OnMount from "./OnMountLifeCycle.svelte";
+	import Store from "./Store/App.svelte";
 </script>
 
 <main>
@@ -22,10 +25,16 @@
 	
 
 	<Await />
-	-->
+	
 
 	<ComponentEvent />
 
+	<ComponentBindings />
+
+-->
+<OnMount />
+
+<Store />
 </main>
 
 <style>
