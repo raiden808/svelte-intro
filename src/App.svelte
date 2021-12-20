@@ -9,9 +9,11 @@
 	import ComponentBindings from "./ComponentBindings/App.svelte";
 	import OnMount from "./OnMountLifeCycle.svelte";
 	import Store from "./Store/App.svelte";
+	import TypingTest from "./TypingTest.svelte";
 </script>
 
 <main>
+	<TypingTest />
 	<!--
 	<h1>Hello {name}!</h1>
 
@@ -32,9 +34,10 @@
 	<ComponentBindings />
 
 -->
-<OnMount />
 
-<Store />
+<!-- <OnMount />
+
+<Store /> -->
 </main>
 
 <style>
