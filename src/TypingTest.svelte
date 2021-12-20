@@ -10,11 +10,13 @@
 	let start = false;
 	let countDown = 1000;
 
+
 	/**
 	 * Equations
 	 * https://www.speedtypingonline.com/typing-equations
 	 */
-	let timer = 5;
+	const originalTimer = 60;
+	let timer = originalTimer;
 	$: wpm = userInputArray.length / 5 / 1;
 
 	// set reactivity here
@@ -54,13 +56,13 @@
 
 	const startTest = () => {
 		start = !start;
-		timer = 5;
+		timer = originalTimer;
 		accuracy = 0;
 		wpm = 0;
 	};
 
 	const restart = () => {
-		timer = 5;
+		timer = originalTimer;
 		accuracy = 0;
 		wpm = 0;
 		start = !start;
@@ -117,7 +119,6 @@
 {#if !start && input != ''}
 	<button on:click={restart}>Re Try?</button>
 {/if}
-<h2>{start}</h2>
 
 <!-- <svelte:window on:keydown={handleKeydown}/> -->
 <style>
