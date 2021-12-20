@@ -1,5 +1,5 @@
 <script>
-	let test = "The Wolf in Sheep's Clothing Once upon a time, a Wolf decided to disguise the way he looked. He thought it would help him get food more easily. He put on the skin of a sheep, then he went out with the flock into the pasture. Even the shepherd was fooled by his clever costume. In the evening, the shepherd put him in with the rest of the sheep. He closed the gate and made sure it was secure before he went to bed. In the middle of the night, he came back to the fold to get some meat for the next day. Instead of a sheep, though, he grabbed the Wolf, killing him instantly. Those who look to harm others will be harmed themselves.";
+	let test = "The Wolf in Sheep's Clothing Once upon a time.";
 	let testArray = test.split("");
 
 	// users input
@@ -7,6 +7,47 @@
 	$: userInputArray = input.split("");
 
 	let start = false;
+
+	/**
+	 * Equations
+	 * https://www.speedtypingonline.com/typing-equations
+	 */
+	let timer = 60;
+	$: wpm = (userInputArray.length/5)/1;
+
+
+	// set reactivity here
+
+	setInterval(() => {
+
+		if(start) {
+			if (timer > 0) timer--;
+		}
+
+		
+	}, 1000);
+
+	let accuracy = 0;
+
+
+	$: input && revealScore();
+
+	const revealScore = () => {
+
+		let score = [];
+
+		testArray.map((e,i) => {
+			if(e == userInputArray[i]) {
+				score.push(e)
+			}
+
+			console.log(e)
+		})
+
+		accuracy = (score.length / testArray.length) * 100;
+
+		console.log("score is: ", score)
+	}
 
 	const startTest = () => {
 		start = !start;
@@ -31,6 +72,10 @@
 		// }
 	}
 </script>
+
+<div>Timer: {timer}</div>
+<div>Accuracy: {accuracy.toFixed(2)}</div>
+<div>WPM: {wpm.toFixed(2)}</div>
 
 <div>
 	{#each testArray as item, i}
