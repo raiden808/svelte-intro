@@ -17,10 +17,11 @@
 	 */
 	const originalTimer = 60;
 	let timer = originalTimer;
+	let accuracy = 0;
 	$: wpm = userInputArray.length / 5 / 1;
 
-	// set reactivity here
 
+	// Timer
 	function intervalTimer() {
 		if (start) {
 			if (timer > 0) timer--;
@@ -31,13 +32,12 @@
 			clearInterval(startTimer);
 		}
 	}
-
 	let startTimer = setInterval(intervalTimer, countDown);
 
-	let accuracy = 0;
-
+	/**
+	 * Track changes on input, then assess accuracy
+	*/
 	$: input && revealScore();
-
 	const revealScore = () => {
 		let score = [];
 
@@ -50,8 +50,6 @@
 		});
 
 		accuracy = (score.length / userInputArray.length) * 100;
-
-		console.log("score is: ", score);
 	};
 
 	const startTest = () => {
