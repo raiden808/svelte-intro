@@ -108,7 +108,7 @@
 
 <br />
 <br />
-<textarea bind:value={input} disabled={!start} />
+<textarea bind:value={input} disabled={!start} ondrop="return false;" onpaste="return false;"/>
 
 {#if !start && input == ''}
 	<button on:click={startTest}>{start ? "Start Typing!" : "Start"}</button>
