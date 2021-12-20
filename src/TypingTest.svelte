@@ -112,7 +112,9 @@
 
 {#if !start && input == ''}
 	<button on:click={startTest}>{start ? "Start Typing!" : "Start"}</button>
-{:else}
+{/if}
+
+{#if !start && input != ''}
 	<button on:click={restart}>Re Try?</button>
 {/if}
 <h2>{start}</h2>
