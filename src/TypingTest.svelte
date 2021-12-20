@@ -54,17 +54,20 @@
 
 	const startTest = () => {
 		start = !start;
+		timer = 5;
+		accuracy = 0;
+		wpm = 0;
 	};
 
 	const restart = () => {
 		timer = 5;
 		accuracy = 0;
 		wpm = 0;
-
 		start = !start;
 		input = "";
 
-		let startTimer = setInterval(intervalTimer, countDown);
+		clearInterval(startTimer);
+		startTimer = setInterval(intervalTimer, countDown);
 	};
 
 	// experimental
@@ -107,8 +110,11 @@
 <br />
 <textarea bind:value={input} disabled={!start} />
 
-<button on:click={startTest}>{start ? "Start Typing!" : "Start"}</button>
-<button on:click={restart}>Restart</button>
+{#if !start && input == ''}
+	<button on:click={startTest}>{start ? "Start Typing!" : "Start"}</button>
+{:else}
+	<button on:click={restart}>Re Try?</button>
+{/if}
 <h2>{start}</h2>
 
 <!-- <svelte:window on:keydown={handleKeydown}/> -->
